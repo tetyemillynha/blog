@@ -14,7 +14,8 @@ class Post extends Model
         'slug' ,
         'execerpt',
         'body',
-        'status'
+        'status',
+        'file'
     ];
 
     public function user(){

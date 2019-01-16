@@ -7,11 +7,11 @@
         <hr>
                 <div class="row">
                     <div class="col-md-8 col-md-offset-2">
-                    <p><strong>Nome: </strong>{{$post->name}}</p>
-                    <p><strong>Slug: </strong>{{$post->slug}}</p>
-                    <p><strong>Body: </strong>{{$post->body}}</p>
-                </div>
-        </div> 
+                        <p><strong>Nome: </strong>{{$post->name}}</p>
+                        <p><strong>Slug: </strong>{{$post->slug}}</p>
+                        <p><strong>Body: </strong>{{$post->body}}</p>
+                    </div>
+                </div> 
     </div>   
 </div>
 @endsection

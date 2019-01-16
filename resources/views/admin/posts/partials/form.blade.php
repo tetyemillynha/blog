@@ -17,12 +17,12 @@
 </div>
 
 <div class="form-group">
-        {{ Form::label('image', 'Imagem: ') }}
-        {{ Form::file('image') }}
+        {{ Form::label('file', 'Imagem: ') }}
+        {{ Form::file('file') }}
 </div>
 
 <div class="form-group">
-        {{ Form::label('status', 'Status: ') }}
+        {{ Form::label('slug', 'Status: ') }}
        <label>
             {{ Form::radio('status', 'PUBLISHED') }} PUBLICADO
        </label>
@@ -56,6 +56,7 @@
 <div class="form-group">
     {{ Form::submit('Salvar', ['class'=> 'btn btn-sm btn-primary']) }}
 </div>
+
 
 @section('scripts')
     <script src="{{ asset('vendor/stringToSlug/jquery.stringToSlug.min.js') }}"></script>
