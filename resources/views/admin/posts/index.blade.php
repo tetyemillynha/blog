@@ -5,8 +5,8 @@
         
             <div class="container">
                     <div class="jumbotron">
-                        <h1>Lista de Etiquetas</h1>
-                        <a class="btn btn-sm btn-primary mb-3" href="{{ route('tags.create') }}" role="button">Inserir</a>
+                        <h1>Meus Artigos</h1>
+                        <a class="btn btn-sm btn-primary mb-3" href="{{ route('posts.create') }}" role="button">Inserir</a>
 
                         <div class="row">
                                 <div class="col-md-8 col-md-offset-2">
@@ -20,21 +20,21 @@
                                     </thead>
         
                                     <tbody>
-                                        @foreach ($tags as $tag)
+                                        @foreach ($posts as $post)
                                             <tr>
-                                            <td>{{$tag->id}}</td>
-                                            <td>{{$tag->name}}</td>
+                                            <td>{{$post->id}}</td>
+                                            <td>{{$post->name}}</td>
                                             
                                             <td width="10px">
-                                                <a href="{{route('tags.show', $tag->id)}}" class="btn btn-sm btn-outline-secondary">Ver</a>
+                                                <a href="{{route('posts.show', $post->id)}}" class="btn btn-sm btn-outline-secondary">Ver</a>
                                             </td>
         
                                             <td width="10px">
-                                                <a href="{{route('tags.edit', $tag->id)}}" class="btn btn-sm btn-outline-secondary">Editar</a>
+                                                <a href="{{route('posts.edit', $post->id)}}" class="btn btn-sm btn-outline-secondary">Editar</a>
                                             </td>
         
                                             <td width="10px">
-                                                {!! Form::open(['route' => ['tags.destroy', $tag->id], 
+                                                {!! Form::open(['route' => ['posts.destroy', $post->id], 
                                                 'method'=> 'DELETE']) !!}
                                                     <button class="btn btn-sm btn-danger">
                                                         Deletar
@@ -47,7 +47,7 @@
                                     </tbody>
                                 </table>
         
-                                {{$tags->render()}}
+                                {{$posts->render()}}
                             </div>
                         </div> 
                     </div>
