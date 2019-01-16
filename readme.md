@@ -11,7 +11,7 @@
 
 Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel attempts to take the pain out of development by easing common tasks used in the majority of web projects, such as:
 
-INSTRUÇÕES PARA INSTALAÇÃO DO BLOG
+<b>INSTRUÇÕES PARA INSTALAÇÃO DO BLOG</b>
 
 1º CRIAR UMA TABELA COM A DESCRIÇÃO "blog" NO BANCO DE DADOS DESEJADO.
 - Nesse exemplo utilizamos um servidor local administrado pelo XAMPP utilizando o BD MySQL.
