@@ -67,7 +67,9 @@ $ php artisan key:generate
 
 <b>3º MIGRANDO AS TABELAS E ALIMENTANDO O BANCO COM INFORMAÇÕES</b>
 
-    <b>Obs:</b> Por padrão ao fazer a migração das tabelas, será criado um usuário administrador com os seguintes dados:</b>
+
+<b>Obs:</b> Por padrão ao fazer a migração das tabelas, será criado um usuário administrador com os seguintes dados:
+
     
 nome: admin
 
