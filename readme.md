@@ -1,7 +1,7 @@
 <p align="center"><img src="https://laravel.com/assets/img/components/logo-laravel.svg"></p>
 
 </br>
-<b>INSTRUÇÕES PARA INSTALAÇÃO DO BLOG</b>
+<b>INSTRUÇÕES PARA INSTALAÇÃO DO BLOG</b></br>
 
 <b>1º CRIAR UMA TABELA COM A DESCRIÇÃO "blog" NO BANCO DE DADOS DESEJADO.</b>
 - Nesse exemplo utilizamos um servidor local administrado pelo XAMPP utilizando o BD MySQL.
