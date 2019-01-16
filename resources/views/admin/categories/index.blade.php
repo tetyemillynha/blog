@@ -4,9 +4,9 @@
     
         
             <div class="container">
-                    <div class="jumbotron">
+                    <div class="jumbotron bg-white rounded shadow-sm">
                         <h1>Lista de Categorias</h1>
-                        <a class="btn btn-sm btn-primary mb-3" href="{{ route('categories.create') }}" role="button">Inserir</a>
+                        <a class="btn btn-sm btn-primary mb-3" href="{{ route('categories.create') }}" role="button">Adicionar categoria</a>
 
                         <div class="row">
                                 <div class="col-md-8 col-md-offset-2">
@@ -24,10 +24,11 @@
                                             <tr>
                                             <td>{{$category->id}}</td>
                                             <td>{{$category->name}}</td>
-                                            
+                                             <!--
                                             <td width="10px">
                                                 <a href="{{route('categories.show', $category->id)}}" class="btn btn-sm btn-outline-secondary">Ver</a>
                                             </td>
+                                            -->
         
                                             <td width="10px">
                                                 <a href="{{route('categories.edit', $category->id)}}" class="btn btn-sm btn-outline-secondary">Editar</a>

@@ -4,9 +4,9 @@
     
         
             <div class="container">
-                    <div class="jumbotron">
-                        <h1>Lista de Etiquetas</h1>
-                        <a class="btn btn-sm btn-primary mb-3" href="{{ route('tags.create') }}" role="button">Inserir</a>
+                    <div class="jumbotron bg-white rounded shadow-sm">
+                        <h1>Lista de Tags</h1>
+                        <a class="btn btn-sm btn-primary mb-3" href="{{ route('tags.create') }}" role="button">Adicionar tag</a>
 
                         <div class="row">
                                 <div class="col-md-8 col-md-offset-2">
@@ -24,11 +24,13 @@
                                             <tr>
                                             <td>{{$tag->id}}</td>
                                             <td>{{$tag->name}}</td>
-                                            
+
+                                            <!--
                                             <td width="10px">
                                                 <a href="{{route('tags.show', $tag->id)}}" class="btn btn-sm btn-outline-secondary">Ver</a>
                                             </td>
-        
+                                            -->
+
                                             <td width="10px">
                                                 <a href="{{route('tags.edit', $tag->id)}}" class="btn btn-sm btn-outline-secondary">Editar</a>
                                             </td>

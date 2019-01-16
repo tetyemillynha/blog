@@ -21,7 +21,7 @@
 </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light navbar-laravel">
+        <nav class="navbar navbar-expand-md navbar-dark bg-dark shadow-sm">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
                    <!-- {{ config('app.name', 'BLOG') }}-->
@@ -33,7 +33,7 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
-                        <li><a href="{{route('blog')}}">MeuBlog</a></li>
+                        <li ><a class="font-weight-bold text-light" href="{{route('blog')}}">MEU BLOGG</a></li>
                     </ul>
 
                     <!-- Right Side Of Navbar -->
@@ -81,7 +81,7 @@
             @if (session('info'))
                 <div class="container">
                     <div class="row">
-                        <div class="col-md-8 col-md-offset-2">
+                        <div class="col-md-12 col-md-offset-2">
                                 <div class="alert alert-success">
                                     {{ session('info') }}
                                 </div>
@@ -90,10 +90,11 @@
                 </div>
             @endif
 
+            <!--MENSAGENS DE ALERTA-->
             @if (count($errors))
             <div class="container">
                     <div class="row">
-                        <div class="col-md-8 col-md-offset-2">
+                        <div class="col-md-12 col-md-offset-2">
                                 <div class="alert alert-danger">
                                     <ul>
                                         @foreach ($errors->all() as $error)
@@ -110,10 +111,6 @@
             @yield('content')
         </main>
     </div>
-    
-<!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}"></script>
-    @yield('scripts')
 
 </body>
 </html>

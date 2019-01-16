@@ -16,7 +16,8 @@ class UsersTableSeeder extends Seeder
         App\User::create([
             'name'      =>  'Stefhany Santos',
             'email'     =>  'stefhany.emilly@hotmail.com',
-            'password'  =>  bcrypt('123456')
+            'password'  =>  bcrypt('123456'),
+            'function'  => 'admin'
         ]);
     }
 }

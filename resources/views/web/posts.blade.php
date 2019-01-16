@@ -9,7 +9,7 @@
                             <div class="card mb-4 shadow-sm">
                                 <!--verifica se artigo possui imagem-->
                                 @if ($post->file)
-                                    <img class="card-img-top" alt="Thumbnail [100%x225]" style="height: 225px; width: 100%; display: block;" src="{{ $post->file }}" class="img-responsive">
+                                    <img class="card-img-top" alt="Thumbnail [100%x225]" style="max-height: 225px; max-width: 100%; display: block;" src="{{ $post->file }}" class="img-responsive">
                                 @endif
                 
                                 <div class="card-body">

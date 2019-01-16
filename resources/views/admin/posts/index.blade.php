@@ -4,9 +4,9 @@
     
         
             <div class="container">
-                    <div class="jumbotron">
+                    <div class="jumbotron bg-white rounded shadow-sm">
                         <h1>Meus Artigos</h1>
-                        <a class="btn btn-sm btn-primary mb-3" href="{{ route('posts.create') }}" role="button">Inserir</a>
+                        <a class="btn btn-sm btn-primary mb-3" href="{{ route('posts.create') }}" role="button">Criar artigo</a>
 
                         <div class="row">
                                 <div class="col-md-8 col-md-offset-2">
@@ -26,7 +26,7 @@
                                             <td>{{$post->name}}</td>
                                             
                                             <td width="10px">
-                                                <a href="{{route('posts.show', $post->id)}}" class="btn btn-sm btn-outline-secondary">Ver</a>
+                                                <a href="{{ route ('post', $post->slug ) }}" class="btn btn-sm btn-outline-secondary">Ver</a>
                                             </td>
         
                                             <td width="10px">

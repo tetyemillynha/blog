@@ -2,17 +2,17 @@
 {{ Form::hidden('user_id', auth()->user()->id) }}
 
 <div class="form-group">
-    {{ Form::label('category_id', 'Categorias: ') }}
+    {{ Form::label('category_id', 'Todas as categorias: ') }}
     {{ Form::select('category_id', $categories, null, ['class' => 'form-control']) }}
 </div>
 
 <div class="form-group">
-    {{ Form::label('name', 'Título do artigo: ') }}
+    {{ Form::label('name', 'Digite o título aqui: ') }}
     {{ Form::text('name', null, ['class' => 'form-control', 'id' => 'name']) }}
 </div>
 
 <div class="form-group">
-    {{ Form::label('slug', 'URL Amigável: ') }}
+    {{ Form::label('slug', 'Slug (Link permanente): ') }}
     {{ Form::text('slug', null, ['class' => 'form-control', 'id' => 'slug']) }}
 </div>
 
@@ -32,7 +32,7 @@
 </div>
 
 <div class="form-group">
-        {{ Form::label('tags', 'Etiquetas: ') }}
+        {{ Form::label('tags', 'Tags: ') }}
        
         <div>
             @foreach ($tags as $tag)
@@ -57,7 +57,7 @@
     {{ Form::submit('Salvar', ['class'=> 'btn btn-sm btn-primary']) }}
 </div>
 
-
+<!--
 @section('scripts')
     <script src="{{ asset('vendor/stringToSlug/jquery.stringToSlug.min.js') }}"></script>
     <script src="{{ asset('vendor/ckeditor/ckeditor.js') }}"></script>
@@ -74,3 +74,4 @@
         });
     </script>
 @endsection
+-->
