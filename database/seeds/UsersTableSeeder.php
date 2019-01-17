@@ -14,10 +14,10 @@ class UsersTableSeeder extends Seeder
         factory(App\User::class,29)->create();
 
         App\User::create([
-            'name'      =>  'Stefhany Santos',
+            'name'      =>  'Stefhany Oliveira',
             'email'     =>  'stefhany.emilly@hotmail.com',
             'password'  =>  bcrypt('123456'),
-            'function'  => 'admin'
+            'permission'  => 'ADMIN' //essa usuário será o único administrador do sistema (insere, altera e deleta um artigo)
         ]);
     }
 }

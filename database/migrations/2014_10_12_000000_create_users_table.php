@@ -21,7 +21,7 @@ class CreateUsersTable extends Migration
             $table->string('password');
             $table->rememberToken();
             $table->timestamps();
-            $table->string('function');
+            $table->enum('permission', ['READER', 'ADMIN'])->default('READER');
         });
     }
 
