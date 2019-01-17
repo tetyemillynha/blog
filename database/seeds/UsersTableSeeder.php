@@ -14,10 +14,17 @@ class UsersTableSeeder extends Seeder
         factory(App\User::class,29)->create();
 
         App\User::create([
-            'name'      =>  'Stefhany Santos',
+            'name'      =>  'admin',
+            'email'     =>  'admin@admin.com',
+            'password'  =>  bcrypt('123456'),
+            'permission'  => 'ADMIN'
+        ]);
+
+         App\User::create([
+            'name'      =>  'Stefhany Oliveira',
             'email'     =>  'stefhany.emilly@hotmail.com',
             'password'  =>  bcrypt('123456'),
-            'function'  => 'admin'
+            'permission'  => 'ADMIN'
         ]);
     }
 }

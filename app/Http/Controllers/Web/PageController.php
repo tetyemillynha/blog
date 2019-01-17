@@ -7,19 +7,20 @@ use App\Http\Controllers\Controller;
 
 use App\Post;
 use App\Category;
+use App\User;
 
 class PageController extends Controller
 {
     //carrega todos os posts com o status publicado
     public function blog(){
-        $posts = Post::orderBy('id', 'DESC')->where('status', 'PUBLISHED')->paginate(3);
+        $posts = Post::orderBy('id', 'DESC')->where('status', 'PUBLISHED')->paginate(9);
     	return view('web.posts', compact('posts'));
     }
 
     //carrega os posts da categoria buscada
     public function category($slug){
         $category   = Category::where('slug', $slug)->pluck('id')->first();
-        $posts      = Post::where('category_id', $category)->orderBy('id', 'DESC')->where('status', 'PUBLISHED')->paginate(3);
+        $posts      = Post::where('category_id', $category)->orderBy('id', 'DESC')->where('status', 'PUBLISHED')->paginate(9);
         
         return view('web.posts', compact('posts'));
     }
@@ -29,7 +30,7 @@ class PageController extends Controller
         $posts      = Post::whereHas('tags', function($query) use($slug){
             $query->where('slug',$slug);
         }) 
-        ->orderBy('id', 'DESC')->where('status', 'PUBLISHED')->paginate(3);
+        ->orderBy('id', 'DESC')->where('status', 'PUBLISHED')->paginate(9);
         
         return view('web.posts', compact('posts'));
     }

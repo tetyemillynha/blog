@@ -10,7 +10,7 @@
 
                <!--verifica se artigo possui imagem-->
                 @if ($post->file)
-                    <img src="{{ $post->file }}" class="img-responsive">
+                    <img src="{{ $post->file }}" class="img-responsive" style="max-height: 480px; max-width: 100%; display: block;">
                 @endif
 
                 <p class="lead">{!! $post->body !!}</p>

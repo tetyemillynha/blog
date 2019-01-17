@@ -43,16 +43,27 @@
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
                             </li>
+                            
+                        @else
+                            <!-- Navigation Menu -->
+                            @if (Auth::user()->permission == 'ADMIN')
+                            <li class="nav-item"><a class="nav-link" href="{{ route('tags.index') }}">Tags</a></li>
+                            <li class="nav-item"><a class="nav-link" href="{{ route('categories.index') }}">Categorias</a></li>
+                            <li class="nav-item"><a class="nav-link" href="{{ route('posts.index') }}">Artigos</a></li>
+
+                            @if (Route::has('users'))
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ route('users') }}">{{ __('Usuarios') }}</a>
+                                </li>
+                            @endif
+
                             @if (Route::has('register'))
                                 <li class="nav-item">
                                     <a class="nav-link" href="{{ route('register') }}">{{ __('Cadastro') }}</a>
                                 </li>
                             @endif
-                        @else
-                            <!-- Navigation Menu -->
-                            <li class="nav-item"><a class="nav-link" href="{{ route('tags.index') }}">Etiquetas</a></li>
-                            <li class="nav-item"><a class="nav-link" href="{{ route('categories.index') }}">Categorias</a></li>
-                            <li class="nav-item"><a class="nav-link" href="{{ route('posts.index') }}">Artigos</a></li>
+
+                            @endif
 
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
