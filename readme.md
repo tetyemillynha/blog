@@ -3,8 +3,8 @@
 </br>
 <b>INSTRUÇÕES PARA INSTALAÇÃO DO BLOG</b>
 
-<b>1º CRIAR UMA TABELA COM A DESCRIÇÃO "blog" NO BANCO DE DADOS DESEJADO.</b>
-- Neste exemplo utilizamos um servidor local administrado pelo XAMPP utilizando o BD MySQL.
+<b>1º CRIAR UM BANCO DE DADOS COM COM A DESCRIÇÃO "blog" NO SERVIDOR DESEJADO.</b>
+- Neste exemplo utilizamos um servidor local administrado pelo XAMPP utilizando o MySQL(MariaDB).
 
 <b>Caso utilize o XAMPP, após instalar: https://www.apachefriends.org/index.html
 NO WINDOWS, MAC ou LINUX:</b>
@@ -26,7 +26,7 @@ $ CREATE DATABASE blog\g
 OU
 
 <b>Acesse:</b>
-http://localhost/phpmyadmin e clique na opção "New" para criar a tabela "blog".
+http://localhost/phpmyadmin e clique na opção "New" para criar o bd "blog".
 De preferência escolha um agrupamento do tipo "utf8_unicode_ci".
 
 
@@ -67,6 +67,11 @@ $ php artisan key:generate
 
 <b>3º MIGRANDO AS TABELAS E ALIMENTANDO O BANCO COM INFORMAÇÕES</b>
 
+Antes de fazer a migração das tabelas e preenché-las com os dados fakes, será necessário alterar o arquivo ".env" em xampp/htdocs/blog/.env. Abra o arquivo e altere as seguintes linhas:
+
+Linha 12: DB_DATABASE = blog (nome do banco de dados)
+Linha 13: DB_USERNAME = root (usuário do banco)
+Linha 14: DB_PASSWORD =      (senha do banco - nesse caso está vazia para facilitar)
 
 <b>Obs:</b> Por padrão ao fazer a migração das tabelas, será criado um usuário administrador com os seguintes dados:
 
