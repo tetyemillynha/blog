@@ -1,69 +1,115 @@
 <p align="center"><img src="https://laravel.com/assets/img/components/logo-laravel.svg"></p>
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/d/total.svg" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/v/stable.svg" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/license.svg" alt="License"></a>
-</p>
+</br>
+<b>INSTRUÇÕES PARA INSTALAÇÃO DO BLOG</b>
 
-## About Laravel
+<b>1º CRIAR UM BANCO DE DADOS COM COM A DESCRIÇÃO "blog" NO SERVIDOR DESEJADO.</b>
+- Neste exemplo utilizamos um servidor local administrado pelo XAMPP utilizando o MySQL(MariaDB).
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel attempts to take the pain out of development by easing common tasks used in the majority of web projects, such as:
+<b>Caso utilize o XAMPP, após instalar: https://www.apachefriends.org/index.html
+NO WINDOWS, MAC ou LINUX:</b>
+- Abra o terminal e acesse a pasta "xampp\mysql\bin":
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
 
-Laravel is accessible, yet powerful, providing tools needed for large, robust applications.
+<b>Exemplo WINDOWS:</b>
 
-## Learning Laravel
+$ cd \xampp\mysql\bin
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of any modern web application framework, making it a breeze to get started learning the framework.
+$ mysql -h localhost -u root
 
-If you're not in the mood to read, [Laracasts](https://laracasts.com) contains over 1100 video tutorials on a range of topics including Laravel, modern PHP, unit testing, JavaScript, and more. Boost the skill level of yourself and your entire team by digging into our comprehensive video library.
+$ CREATE DATABASE blog\g
 
-## Laravel Sponsors
 
-We would like to extend our thanks to the following sponsors for helping fund on-going Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell):
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[British Software Development](https://www.britishsoftware.co)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- [UserInsights](https://userinsights.com)
-- [Fragrantica](https://www.fragrantica.com)
-- [SOFTonSOFA](https://softonsofa.com/)
-- [User10](https://user10.com)
-- [Soumettre.fr](https://soumettre.fr/)
-- [CodeBrisk](https://codebrisk.com)
-- [1Forge](https://1forge.com)
-- [TECPRESSO](https://tecpresso.co.jp/)
-- [Runtime Converter](http://runtimeconverter.com/)
-- [WebL'Agence](https://weblagence.com/)
-- [Invoice Ninja](https://www.invoiceninja.com)
-- [iMi digital](https://www.imi-digital.de/)
-- [Earthlink](https://www.earthlink.ro/)
-- [Steadfast Collective](https://steadfastcollective.com/)
-- [We Are The Robots Inc.](https://watr.mx/)
-- [Understand.io](https://www.understand.io/)
+(Feche o terminal)
 
-## Contributing
+OU
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+<b>Acesse:</b>
+http://localhost/phpmyadmin e clique na opção "New" para criar o bd "blog".
+De preferência escolha um agrupamento do tipo "utf8_unicode_ci".
 
-## Security Vulnerabilities
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+<b>2º CLONANDO O PROJETO PARA O DIRETÓRIO DO SERVIDOR</b>
 
-## License
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+<b>- Abra o terminal e acesse a pasta "xampp/htdocs"</b>
+
+$ cd \xampp\htdocs
+
+
+<b>- Dentro do repositório "/htdocs", clone o projeto "blog" com o seguinte comando:</b>
+
+$ git clone https://github.com/tetyemillynha/blog.git
+
+$ cd blog
+
+
+<b>- INSTALL COMPOSER</b>
+
+$ composer install
+
+
+<b>- INSTALL NPM</b>
+
+$ npm install
+
+
+<b>- CRIAR CÓPIA DO .env</b>
+
+$ copy .env.example .env
+
+
+<b>- CRIAR CHAVE DO APLICATIVO</b>
+
+$ php artisan key:generate
+
+
+<b>3º MIGRANDO AS TABELAS E ALIMENTANDO O BANCO COM INFORMAÇÕES</b>
+
+Antes de fazer a migração das tabelas e preenché-las com os dados fakes, será necessário alterar o arquivo ".env" em xampp/htdocs/blog/.env. Abra o arquivo e altere as seguintes linhas:
+
+Linha 12: DB_DATABASE = blog (nome do banco de dados)
+Linha 13: DB_USERNAME = root (usuário do banco)
+Linha 14: DB_PASSWORD =      (senha do banco - nesse caso está vazia para facilitar)
+
+<b>Obs:</b> Por padrão ao fazer a migração das tabelas, será criado um usuário administrador com os seguintes dados:
+
+    
+nome: admin
+
+e-mail: admin@admin.com
+
+senha: 1234
+
+
+Caso deseje alterar esses dados, abra a pasta do projeto "blog/database/seeds" e altere as linhas 17,18,19 do arquivo UsersTableSeeder.php
+
+
+<b>Ainda no terminal e dentro da pasta do projeto "htdocs\blog" rode o comando:</b>
+
+$ php artisan migrate:refresh --seed
+
+
+<b>4º INSTALANDO ARQUIVOS DE TRADUÇÃO DE MENSAGENS DE ERRO DO LARAVEL</b>
+
+https://github.com/vitorec/laravel-5.5-pt-br-locale
+
+
+<b>Ainda no terminal e dentro da pasta do projeto "blog" rode os seguintes comandos:</b>
+
+$ cd resources/lang/
+
+$ git clone https://github.com/vitorec/laravel-5.5-pt-br-locale.git ./pt-br
+
+
+
+<b>4º TESTANDO A APLICAÇÃO</b>
+
+$ php artisan serve
+
+
+<b>Nesse ponto acesse o navegador e digite o endereço informado no terminal.</b>
+
+$ Por padrão o endereço é: http://localhost:8000 ou http://127.0.0.1:8000
+

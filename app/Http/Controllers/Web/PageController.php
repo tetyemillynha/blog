@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 
 use App\Post;
 use App\Category;
+use App\User;
 
 class PageController extends Controller
 {

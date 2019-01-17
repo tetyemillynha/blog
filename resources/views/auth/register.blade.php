@@ -11,6 +11,24 @@
                     <form method="POST" action="{{ route('register') }}">
                         @csrf
 
+                         <div class="form-group row">
+                            
+                            <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Permissão') }}</label>
+
+                            <div class="col-md-6">
+                                <div class="form-radio">
+
+                                   <label>
+                                        {{ Form::radio('permission', 'ADMIN') }} Administrdor
+                                   </label>
+                                   <label>
+                                        {{ Form::radio('permission', 'READER') }} Leitor
+                                   </label>
+                                    
+                                </div>
+                            </div>
+                        </div>
+
                         <div class="form-group row">
                             <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Nome') }}</label>
 
@@ -38,6 +56,8 @@
                                 @endif
                             </div>
                         </div>
+
+                        
 
                         <div class="form-group row">
                             <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Senha') }}</label>
