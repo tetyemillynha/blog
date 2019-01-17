@@ -25,4 +25,9 @@ class PostPolicy
     {
         return ($user->id == $post->user_id) and ($user->permission == 'ADMIN');
     }
+
+    public function acess($permission,){
+        return $permission == 'ADMIN';
+    }
+
 }

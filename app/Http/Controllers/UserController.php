@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
 use App\User;
+use App\Post;
 
 class UserController extends Controller
 {
@@ -14,6 +15,7 @@ class UserController extends Controller
      public function __construct(){
         $this->middleware('auth');
      }
+     
     /**
      * Show the form for creating a new resource.
      *
@@ -21,7 +23,14 @@ class UserController extends Controller
      */
     public function create()
     {
-        return view('create');
+        $usr_permission = auth()->user()->permission;
+
+        if( $usr_permission !== 'ADMIN')
+        {
+            return redirect('blog');
+        }else{
+            return view('create');
+        }
     }
 
     /**
@@ -32,31 +41,42 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        $user= new \App\User;
-        $this->authorize('pass', $user);
 
-    
-        $user->permission   ='ADMIN';
-        $user->name         =$request->get('name');
-        $user->email        =$request->get('email');
-        $npassword          =$request->get('password');
+        $usr_permission = auth()->user()->permission;
 
-        if ($npassword != "") {
-            $user->password = bcrypt($npassword);
+        if( $usr_permission !== 'ADMIN')
+        {
+            return redirect('blog');
         }else{
-            $user->password = "";
-        }
-    
-        $user->save();
+            $user= new \App\User;
 
-        return redirect('users')->with('success', 'Usuário adicinado!');
+            $user->permission   =$request->get('permission');
+            $user->name         =$request->get('name');
+            $user->email        =$request->get('email');
+            $npassword          =$request->get('password');
+    
+            if ($npassword != "") {
+                $user->password = bcrypt($npassword);
+            }else{
+                $user->password = "";
+            }
+        
+            $user->save();
+            return redirect('users')->with('success', 'Usuário adicinado!');
+        }
     }
 
     public function index()
     {
-        $users=\App\User::all();
-        
-        return view('index',compact('users'));
+        $usr_permission = auth()->user()->permission;
+
+        if( $usr_permission !== 'ADMIN')
+        {
+            return redirect('blog');
+        }else{
+            $users=\App\User::all();
+            return view('index',compact('users'));
+        }
     }
 
      /**
@@ -67,9 +87,15 @@ class UserController extends Controller
      */
     public function edit($id)
     {
-        $user = \App\User::find($id);
-        $this->authorize('pass', $user);
-        return view('edit',compact('user','id'));
+        $usr_permission = auth()->user()->permission;
+
+        if( $usr_permission !== 'ADMIN')
+        {
+            return redirect('blog');
+        }else{
+            $user = \App\User::find($id);
+            return view('edit',compact('user','id'));
+        }
     }
 
     /**
@@ -81,22 +107,30 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $user = \App\User::find($id);
-        $this->authorize('pass', $user);
+        $usr_permission = auth()->user()->permission;
 
-        $user->name     =$request->get('name');
-        $user->email    =$request->get('email');
-
-        $npassword = $request->get('password');
-
-        if ($npassword != "") {
-            $user->password = bcrypt($npassword);
+        if( $usr_permission !== 'ADMIN')
+        {
+            return redirect('blog');
         }else{
-            $user->password = "";
+            $user = \App\User::find($id);
+
+            $user->permission   =$request->get('permission');
+            $user->name         =$request->get('name');
+            $user->email        =$request->get('email');
+    
+            $npassword = $request->get('password');
+    
+            if ($npassword != "") {
+                $user->password = bcrypt($npassword);
+            }else{
+                $user->password = "";
+            }
+                
+            $user->save();
+            return redirect('users');
         }
-            
-        $user->save();
-        return redirect('users');
+        
     }
 
     /**
@@ -107,12 +141,19 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        $user = \App\User::find($id);
-        $this->authorize('pass', $user);
 
-        $user->delete();
+        $usr_permission = auth()->user()->permission;
 
-        return redirect('users')->with('success','usuário deletado');
+        if( $usr_permission !== 'ADMIN')
+        {
+            return redirect('blog');
+        }else{
+            $user = \App\User::find($id);
+            $user->delete();
+    
+            return redirect('users')->with('success','usuário deletado'); 
+        }
+        
     }
 
 }

@@ -24,9 +24,15 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        $categories = Category::orderBy('id', 'DESC')->paginate();
-        //dd($categories);
-        return view('admin.categories.index', compact('categories'));//['categories'=>$categories]
+        $usr_permission = auth()->user()->permission;
+
+        if( $usr_permission !== 'ADMIN')
+        {
+            return redirect('blog');
+        }else{
+            $categories = Category::orderBy('id', 'DESC')->paginate();
+            return view('admin.categories.index', compact('categories'));
+        }
     }
 
     /**
@@ -48,6 +54,7 @@ class CategoryController extends Controller
     public function store(CategoryStoreRequest $request)
     {
         $category = Category::create($request->all());
+
         return redirect()->route('categories.edit',$category->id)->with('info', 'Categoria criada com sucesso');
     }
 

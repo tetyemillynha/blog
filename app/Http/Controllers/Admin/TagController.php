@@ -24,9 +24,16 @@ class TagController extends Controller
      */
     public function index()
     {
-        $tags = Tag::orderBy('id', 'DESC')->paginate();
-        //dd($tags);
-        return view('admin.tags.index', compact('tags'));//['tags'=>$tags]
+        $usr_permission = auth()->user()->permission;
+
+        if( $usr_permission !== 'ADMIN')
+        {
+            return redirect('blog');
+        }else{
+            $tags = Tag::orderBy('id', 'DESC')->paginate();
+            return view('admin.tags.index', compact('tags'));
+        }
+        
     }
 
     /**

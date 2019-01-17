@@ -15,6 +15,7 @@ Route::redirect('/', 'blog');
 
 Auth::routes();
 
+
 Route::get('blog',              'Web\PageController@blog')      ->   name('blog');
 Route::get('entrada/{slug}',    'Web\PageController@post')      ->   name('post');
 Route::get('categoria/{slug}',  'Web\PageController@category')  ->   name('category');

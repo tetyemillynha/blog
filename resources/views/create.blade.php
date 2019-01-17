@@ -12,6 +12,20 @@
                         @csrf
 
                         <div class="row">
+                            <div class="col-md-8 col-md-offset-2">
+                              <div class="form-group">
+                                   
+                                <label class="pr-3">
+                                    <input  type="radio" name="permission" value="ADMIN"> Administrador<br>
+                                </label>
+                                <label>
+                                    <input type="radio" name="permission" value="READER"> Leitor<br>
+                                </label>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="row">
                           <div class="col-md-8 col-md-offset-2">
                             <label for="Name">Nome:</label>
                             <input type="text" class="form-control" name="name">

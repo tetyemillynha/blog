@@ -12,6 +12,20 @@
                         <form method="post" action="{{action('UserController@update', $user['id'])}}">
                           @csrf
                           <input name="_method" type="hidden" value="PATCH">
+
+                              <div class="row">
+                                  <div class="col-md-8 col-md-offset-2">
+                                    <div class="form-group">
+                                        <label class="pr-3">
+                                            <input  type="radio" name="permission" value="ADMIN" {{$user->permission}}> Administrador<br>
+                                        </label>
+                                        
+                                        <label>
+                                            <input type="radio" name="permission" value="READER" {{$user->permission}}> Leitor<br>
+                                        </label>
+                                  </div>
+                                </div>
+                              </div>
                             
                               <div class="row">
                                   <div class="col-md-8 col-md-offset-2">
@@ -31,7 +45,7 @@
                               <div class="row">
                                   <div class="col-md-8 col-md-offset-2">
                                       <label for="password">Senha</label>
-                                      <input type="text" class="form-control" name="password" value="">
+                                      <input type="password" class="form-control" name="password" value="">
                                     
                                   </div>
                               </div>
