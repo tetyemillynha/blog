@@ -4,7 +4,7 @@
 <b>INSTRUÇÕES PARA INSTALAÇÃO DO BLOG</b>
 
 <b>1º CRIAR UMA TABELA COM A DESCRIÇÃO "blog" NO BANCO DE DADOS DESEJADO.</b>
-- Nesse exemplo utilizamos um servidor local administrado pelo XAMPP utilizando o BD MySQL.
+- Neste exemplo utilizamos um servidor local administrado pelo XAMPP utilizando o BD MySQL.
 
 <b>Caso utilize o XAMPP, após instalar: https://www.apachefriends.org/index.html
 NO WINDOWS, MAC ou LINUX:</b>
