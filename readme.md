@@ -70,8 +70,11 @@ $ php artisan key:generate
 Antes de fazer a migração das tabelas e preenché-las com os dados fakes, será necessário alterar o arquivo ".env" em xampp/htdocs/blog/.env. Abra o arquivo e altere as seguintes linhas:
 
 Linha 12: DB_DATABASE = blog (nome do banco de dados)
-Linha 13: DB_USERNAME = root (usuário do banco)
+
+Linha 13: DB_USERNAME = root (usuário do banco
+
 Linha 14: DB_PASSWORD =      (senha do banco - nesse caso está vazia para facilitar)
+
 
 <b>Obs:</b> Por padrão ao fazer a migração das tabelas, será criado um usuário administrador com os seguintes dados:
 
@@ -80,7 +83,7 @@ nome: admin
 
 e-mail: admin@admin.com
 
-senha: 1234
+senha: 123456
 
 
 Caso deseje alterar esses dados, abra a pasta do projeto "blog/database/seeds" e altere as linhas 17,18,19 do arquivo UsersTableSeeder.php
@@ -109,7 +112,7 @@ $ git clone https://github.com/vitorec/laravel-5.5-pt-br-locale.git ./pt-br
 $ php artisan serve
 
 
-<b>Nesse ponto acesse o navegador e digite o endereço informado no terminal.</b>
+<b>Neste ponto acesse o navegador e digite o endereço informado no terminal.</b>
 
 $ Por padrão o endereço é: http://localhost:8000 ou http://127.0.0.1:8000
 
