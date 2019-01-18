@@ -22,7 +22,7 @@
 </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md bg-header bg-dark shadow-sm">
+        <nav class="navbar navbar-expand-md navbar-dark bg-header bg-dark shadow-sm">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
                    <!-- {{ config('app.name', 'BLOG') }}-->

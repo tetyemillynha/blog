@@ -6,11 +6,6 @@
 	background-color: #1b2f52 !important;
 }
 
-.bg-header a{
-	color: #fff;
-	text-decoration: none;
-}
-
 .bg-header a:hover{
 	color:#c1c1c1;
 }
