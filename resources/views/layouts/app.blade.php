@@ -18,10 +18,11 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/mystyle.css') }}" rel="stylesheet">
 </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-dark bg-dark shadow-sm">
+        <nav class="navbar navbar-expand-md bg-header bg-dark shadow-sm">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
                    <!-- {{ config('app.name', 'BLOG') }}-->
@@ -41,26 +42,21 @@
                         <!-- Authentication Links -->
                         @guest
                             <li class="nav-item">
+                                <a class="nav-link" href="{{ route('register') }}">{{ __('Cadastre-se') }}</a>
+                            </li>
+
+                            <li class="nav-item">
                                 <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
                             </li>
                         @else
                             <!-- Navigation Menu -->
-
                             @if (Auth::user()->permission == 'ADMIN')
-                                
-                            <li class="nav-item"><a class="nav-link" href="{{ route('tags.index') }}">Etiquetas</a></li>
-                            <li class="nav-item"><a class="nav-link" href="{{ route('categories.index') }}">Categorias</a></li>
-                            <li class="nav-item"><a class="nav-link" href="{{ route('posts.index') }}">Artigos</a></li>
-                            <li class="nav-item"><a class="nav-link" href="{{ route('users.index') }}">Usuários</a></li>
-                                <!--
-                                @if (Route::has('register'))
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="{{ route('register') }}">{{ __('Cadastro') }}</a>
-                                    </li>
-                                @endif
-                                -->
+                                <li class="nav-item"><a class="nav-link" href="{{ route('tags.index') }}">Tags</a></li>
+                                <li class="nav-item"><a class="nav-link" href="{{ route('categories.index') }}">Categorias</a></li>
+                                <li class="nav-item"><a class="nav-link" href="{{ route('users.index') }}">Usuários</a></li>
                             @endif
                             
+                            <li class="nav-item"><a class="nav-link" href="{{ route('posts.index') }}">Artigos</a></li>
 
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
@@ -85,7 +81,7 @@
             </div>
         </nav>
 
-        <main class="py-4">
+        <main >
             @if (session('info'))
                 <div class="container">
                     <div class="row">
@@ -98,9 +94,9 @@
                 </div>
             @endif
 
-            <!--MENSAGENS DE ALERTA-->
+            <!--Alert messages-->
             @if (count($errors))
-            <div class="container">
+            <div class="container py-4">
                     <div class="row">
                         <div class="col-md-12 col-md-offset-2">
                                 <div class="alert alert-danger">

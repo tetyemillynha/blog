@@ -1,6 +1,20 @@
 @extends('layouts.app')
 
 @section('content')
+<section class="jumbotron text-center bg-gradient">
+    <div class="container ">
+        <h1 class="jumbotron-heading">Summer Breeze</h1>
+        <p class="lead text-muted">
+            It's a real strange world,
+            sometimes it feels like it's not my world
+            but it's the only world I got.
+            Or maybe, maybe it's different now then? 
+        </br>
+        (S.O.J.A)
+        </p>   
+    </div>
+</section>
+
     <div class="container">
             <div class="row">
                      <!--Carrega postagens-->

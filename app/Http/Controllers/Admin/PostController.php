@@ -13,6 +13,7 @@ use App\Http\Requests\PostUpdateRequest;
 use App\Post;
 use App\Category;
 use App\Tag;
+use App\User;
 
 class PostController extends Controller
 {
@@ -28,9 +29,19 @@ class PostController extends Controller
      */
     public function index()
     {
-        $posts = Post::orderBy('id', 'DESC')
-        ->where('user_id', auth()->user()->id)
-        ->paginate();
+        $user_permission = auth()->user()->permission;
+        
+
+        if ( $user_permission !== 'ADMIN')
+        {
+            $posts = Post::orderBy('id', 'DESC')
+                        ->where('user_id', auth()->user()->id)
+                        ->paginate();
+        }else{
+            $posts = Post::orderBy('id', 'DESC')->paginate();
+        }
+        
+       
 
         //dd($posts);
         return view('admin.posts.index', compact('posts'));//['posts'=>$posts]

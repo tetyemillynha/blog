@@ -1,9 +1,9 @@
 @extends('layouts.app')
-<!---->
+<!--Form Edit User-->
 @section('content')
     <div class="container">
         <div class="jumbotron bg-white rounded shadow-sm">
-            <h3>Editar Categoria</h3>
+            <h3>Editar usuário</h3>
             <hr>
             <!--<p class="lead">Crie uma nova etiqueta para associar a um artigo</p>-->
                 <div class="row">
@@ -13,31 +13,30 @@
                           @csrf
                           <input name="_method" type="hidden" value="PATCH">
 
-                              <div class="row">
+                              <div class="row mb-3">
                                   <div class="col-md-8 col-md-offset-2">
-                                    <div class="form-group">
-                                        <label class="pr-3">
-                                            <input  type="radio" name="permission" value="ADMIN" {{$user->permission}}> Administrador<br>
-                                        </label>
-                                        
-                                        <label>
-                                            <input type="radio" name="permission" value="READER" {{$user->permission}}> Leitor<br>
-                                        </label>
-                                  </div>
+                                    <div class="form-check form-check-inline"> 
+                                          <input type="radio" name="permission" id="admin" value="ADMIN" class= "form-check-input" required autofocus> <label class="form-check-label" for="inlineRadio1">Administrador</label>
+                                    </div>
+
+                                    <div class="form-check form-check-inline">   
+                                          <input type="radio" name="permission" id="reader" value="READER" class= "form-check-input" required autofocus> <label class="form-check-label" for="inlineRadio1">Leitor</label>
+                                    </div>
+
                                 </div>
                               </div>
                             
                               <div class="row">
                                   <div class="col-md-8 col-md-offset-2">
                                   <label for="name">Nome</label>
-                                  <input type="text" class="form-control" name="name" value="{{$user->name}}">
+                                  <input type="text" class="form-control" name="name" value="{{$user->name}}" required autofocus>
                                   </div>
                               </div>
 
                               <div class="row">
                                   <div class="col-md-8 col-md-offset-2">
                                       <label for="email">E-mail</label>
-                                      <input type="text" class="form-control" name="email" value="{{$user->email}}">
+                                      <input type="email" class="form-control" name="email" value="{{$user->email}}" required autofocus>
                                   
                                   </div>
                               </div>

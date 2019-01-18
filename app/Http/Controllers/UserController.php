@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\UserStoreRequest;
+use App\Http\Requests\UserUpdateRequest;
+
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -39,7 +42,7 @@ class UserController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(UserStoreRequest $request)
     {
 
         $usr_permission = auth()->user()->permission;
@@ -48,12 +51,12 @@ class UserController extends Controller
         {
             return redirect('blog');
         }else{
-            $user= new \App\User;
+            $user = new User;
 
-            $user->permission   =$request->get('permission');
-            $user->name         =$request->get('name');
-            $user->email        =$request->get('email');
-            $npassword          =$request->get('password');
+            $user->permission   = $request->get('permission');
+            $user->name         = $request->get('name');
+            $user->email        = $request->get('email');
+            $npassword          = $request->get('password');
     
             if ($npassword != "") {
                 $user->password = bcrypt($npassword);
@@ -74,7 +77,8 @@ class UserController extends Controller
         {
             return redirect('blog');
         }else{
-            $users=\App\User::all();
+
+            $users = User::paginate(10);
             return view('index',compact('users'));
         }
     }
@@ -93,7 +97,7 @@ class UserController extends Controller
         {
             return redirect('blog');
         }else{
-            $user = \App\User::find($id);
+            $user = User::find($id);
             return view('edit',compact('user','id'));
         }
     }
@@ -105,7 +109,7 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(UserUpdateRequest $request, $id)
     {
         $usr_permission = auth()->user()->permission;
 
@@ -113,13 +117,12 @@ class UserController extends Controller
         {
             return redirect('blog');
         }else{
-            $user = \App\User::find($id);
-
-            $user->permission   =$request->get('permission');
-            $user->name         =$request->get('name');
-            $user->email        =$request->get('email');
+            $user = User::find($id);
+            $user->permission   = $request->get('permission');
+            $user->name         = $request->get('name');
+            $user->email        = $request->get('email');
     
-            $npassword = $request->get('password');
+            $npassword          = $request->get('password');
     
             if ($npassword != "") {
                 $user->password = bcrypt($npassword);
@@ -129,6 +132,7 @@ class UserController extends Controller
                 
             $user->save();
             return redirect('users');
+
         }
         
     }
@@ -141,17 +145,16 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-
         $usr_permission = auth()->user()->permission;
 
         if( $usr_permission !== 'ADMIN')
         {
             return redirect('blog');
         }else{
-            $user = \App\User::find($id);
+            $user = User::find($id);
             $user->delete();
     
-            return redirect('users')->with('success','usuário deletado'); 
+            return redirect('users')->with('success','Usuário deletado!'); 
         }
         
     }

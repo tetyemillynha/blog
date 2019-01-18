@@ -2,17 +2,17 @@
 {{ Form::hidden('user_id', auth()->user()->id) }}
 
 <div class="form-group">
-    {{ Form::label('category_id', 'Todas as categorias: ') }}
+    {{ Form::label('category_id', 'Todas as categorias ') }}
     {{ Form::select('category_id', $categories, null, ['class' => 'form-control']) }}
 </div>
 
 <div class="form-group">
-    {{ Form::label('name', 'Digite o título aqui: ') }}
+    {{ Form::label('name', 'Digite o título aqui ') }}
     {{ Form::text('name', null, ['class' => 'form-control', 'id' => 'name']) }}
 </div>
 
 <div class="form-group">
-    {{ Form::label('slug', 'Slug (Link permanente): ') }}
+    {{ Form::label('slug', 'Slug (Link permanente) ') }}
     {{ Form::text('slug', null, ['class' => 'form-control', 'id' => 'slug']) }}
 </div>
 
@@ -22,7 +22,7 @@
 </div>
 
 <div class="form-group">
-        {{ Form::label('slug', 'Status: ') }}
+        {{ Form::label('slug', 'Status ') }}
        <label>
             {{ Form::radio('status', 'PUBLISHED') }} PUBLICADO
        </label>
@@ -32,7 +32,7 @@
 </div>
 
 <div class="form-group">
-        {{ Form::label('tags', 'Tags: ') }}
+        {{ Form::label('tags', 'Tags ') }}
        
         <div>
             @foreach ($tags as $tag)
@@ -44,34 +44,15 @@
 </div>
 
 <div class="form-group">
-        {{ Form::label('execerpt', 'Resumo: ') }}
+        {{ Form::label('execerpt', 'Resumo ') }}
         {{ Form::textarea('execerpt', null, ['class' => 'form-control', 'rows'=> '2']) }}
 </div>
 
 <div class="form-group">
-    {{ Form::label('body', 'Descrição: ') }}
+    {{ Form::label('body', 'Descrição ') }}
     {{ Form::textarea('body', null, ['class' => 'form-control']) }}
 </div>
 
 <div class="form-group">
-    {{ Form::submit('Salvar', ['class'=> 'btn btn-sm btn-primary']) }}
+    {{ Form::submit('Salvar', ['class'=> 'btn btn-success']) }}
 </div>
-
-<!--
-@section('scripts')
-    <script src="{{ asset('vendor/stringToSlug/jquery.stringToSlug.min.js') }}"></script>
-    <script src="{{ asset('vendor/ckeditor/ckeditor.js') }}"></script>
-    <script>
-        $(document).ready(function(){
-            $("#name, #slug").stringToSlug({
-                callback: function(text){
-                    $('#slug').val(text);
-                }
-            });
-            CKEDITOR.config.height = 400;
-            CKEDITOR.config.width  = 'auto';
-            CKEDITOR.replace('body');
-        });
-    </script>
-@endsection
--->

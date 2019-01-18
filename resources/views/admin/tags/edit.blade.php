@@ -1,9 +1,9 @@
 @extends('layouts.app')
-<!---->
+<!--Edit Tags-->
 @section('content')
     <div class="container">
         <div class="jumbotron bg-white rounded shadow-sm">
-            <h1>Editar Etiqueta</h1>
+            <h1>Editar tag</h1>
             <hr>
             <!--<p class="lead">Crie uma nova etiqueta para associar a um artigo</p>-->
                 <div class="row">

@@ -1,5 +1,5 @@
 @extends('layouts.app')
-<!---->
+<!--Create Category-->
 @section('content')
 
     <div class="container">

@@ -1,5 +1,5 @@
 @extends('layouts.app')
-<!---->
+<!--Show Category-->
 @section('content')
 <div class="container">
     <div class="jumbotron">

@@ -55,7 +55,7 @@ class CategoryController extends Controller
     {
         $category = Category::create($request->all());
 
-        return redirect()->route('categories.edit',$category->id)->with('info', 'Categoria criada com sucesso');
+        return redirect('categories');
     }
 
     /**

@@ -1,0 +1,21 @@
+.bg-gradient{
+	background-image: linear-gradient(#eaeaea, #f3e2bc) !important;
+}
+
+.bg-header{
+	background-color: #1b2f52 !important;
+}
+
+.bg-header a{
+	color: #fff;
+	text-decoration: none;
+}
+
+.bg-header a:hover{
+	color:#c1c1c1;
+}
+
+.btn-color{
+	background-color: #1b2f52;
+}
+

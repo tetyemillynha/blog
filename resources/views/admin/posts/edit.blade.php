@@ -1,5 +1,5 @@
 @extends('layouts.app')
-<!---->
+<!--Edit post-->
 @section('content')
     <div class="container">
         <div class="jumbotron bg-white rounded shadow-sm">

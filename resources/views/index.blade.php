@@ -1,8 +1,9 @@
 
 @extends('layouts.app')
 @section('content')
-
+<!--Users List-->
 <div class="container">
+
     <div class="jumbotron bg-white rounded shadow-sm">
         <h1>Lista de Usuários</h1>
             <a class="btn btn-sm btn-primary mb-3" href="{{action('UserController@create')}}" role="button">Adicionar usuário</a>
@@ -26,7 +27,7 @@
                                   <td>{{$user['name']}}</td>
                               
                                   
-                                  <td><a href="{{action('UserController@edit', $user['id'])}}" class="btn btn-sm btn-outline-secondary">Edit</a></td>
+                                  <td><a href="{{action('UserController@edit', $user['id'])}}" class="btn btn-sm btn-outline-secondary">Editar</a></td>
                                   <td>
                                     <form action="{{action('UserController@destroy', $user['id'])}}', $user['id'])}}" method="post">
                                       @csrf
@@ -38,6 +39,7 @@
                                 @endforeach
                               </tbody>
                         </table>
+                       {{$users->render()}} 
                     </div>
                 </div>
               </div>

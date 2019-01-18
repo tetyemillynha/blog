@@ -1,11 +1,11 @@
 @extends('layouts.app')
-<!---->
+<!--List Posts-->
 @section('content')
     
         
             <div class="container">
                     <div class="jumbotron bg-white rounded shadow-sm">
-                        <h1>Meus Artigos</h1>
+                        <h1>Lista de artigos</h1>
                         <a class="btn btn-sm btn-primary mb-3" href="{{ route('posts.create') }}" role="button">Criar artigo</a>
 
                         <div class="row">

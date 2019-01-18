@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
+<div class="container py-4">
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
@@ -10,24 +10,6 @@
                 <div class="card-body">
                     <form method="POST" action="{{ route('register') }}">
                         @csrf
-
-                         <div class="form-group row">
-                            
-                            <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Permissão') }}</label>
-
-                            <div class="col-md-6">
-                                <div class="form-radio">
-
-                                   <label>
-                                        {{ Form::radio('permission', 'ADMIN') }} Administrdor
-                                   </label>
-                                   <label>
-                                        {{ Form::radio('permission', 'READER') }} Leitor
-                                   </label>
-                                    
-                                </div>
-                            </div>
-                        </div>
 
                         <div class="form-group row">
                             <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Nome') }}</label>

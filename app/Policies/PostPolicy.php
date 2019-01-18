@@ -23,11 +23,7 @@ class PostPolicy
 
     public function pass(User $user, Post $post)
     {
-        return ($user->id == $post->user_id) and ($user->permission == 'ADMIN');
-    }
-
-    public function acess($permission,){
-        return $permission == 'ADMIN';
+        return ($user->id == $post->user_id);
     }
 
 }
