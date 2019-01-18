@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<section class="jumbotron text-center bg-gradient">
+<div class="jumbotron text-center bg-gradient">
     <div class="container ">
         <h1 class="jumbotron-heading">Summer Breeze</h1>
         <p class="lead text-muted">
@@ -13,7 +13,7 @@
         (S.O.J.A)
         </p>   
     </div>
-</section>
+</div>
 
     <div class="container">
             <div class="row">

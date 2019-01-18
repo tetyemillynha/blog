@@ -92,10 +92,12 @@ class UserController extends Controller
     public function edit($id)
     {
         $usr_permission = auth()->user()->permission;
+        $usr_id         = auth()->user()->id;
 
         if( $usr_permission !== 'ADMIN')
         {
-            return redirect('blog');
+            $user = User::find($id);
+            return view('edit',compact('user',$usr_id));
         }else{
             $user = User::find($id);
             return view('edit',compact('user','id'));

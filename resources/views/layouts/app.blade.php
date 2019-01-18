@@ -70,6 +70,10 @@
                                         {{ __('Logout') }}
                                     </a>
 
+                                     <td>
+                                    <a class="dropdown-item" href="{{action('UserController@edit', Auth::user()->id)}}" class="btn btn-sm btn-outline-secondary">Meus dados</a>
+                                  </td>
+
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                         @csrf
                                     </form>

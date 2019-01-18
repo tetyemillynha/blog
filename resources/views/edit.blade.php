@@ -8,9 +8,10 @@
             <!--<p class="lead">Crie uma nova etiqueta para associar a um artigo</p>-->
                 <div class="row">
                     <div class="col-md-8 col-md-offset-2">
-                     
-                        <form method="post" action="{{action('UserController@update', $user['id'])}}">
-                          @csrf
+                      @if (Auth::user()->permission == 'ADMIN')
+                       <form method="post" action="{{action('UserController@update', $user['id'])}}">
+
+                        @csrf
                           <input name="_method" type="hidden" value="PATCH">
 
                               <div class="row mb-3">
@@ -25,6 +26,14 @@
 
                                 </div>
                               </div>
+
+                      @else
+                        <form method="post" action="{{action('UserController@update', Auth::user()->id)}}">
+                          
+                        <input name="_method" type="hidden" value="PATCH">
+                      @endif
+                       
+                          
                             
                               <div class="row">
                                   <div class="col-md-8 col-md-offset-2">

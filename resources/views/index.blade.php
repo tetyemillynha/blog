@@ -27,7 +27,10 @@
                                   <td>{{$user['name']}}</td>
                               
                                   
-                                  <td><a href="{{action('UserController@edit', $user['id'])}}" class="btn btn-sm btn-outline-secondary">Editar</a></td>
+                                  <td>
+                                    <a href="{{action('UserController@edit', $user['id'])}}" class="btn btn-sm btn-outline-secondary">Editar</a>
+                                  </td>
+
                                   <td>
                                     <form action="{{action('UserController@destroy', $user['id'])}}', $user['id'])}}" method="post">
                                       @csrf
